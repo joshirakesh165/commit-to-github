@@ -16,7 +16,7 @@ const SERVICE_PORT = process.env.SERVICE_PORT || 8000
 app.use(bodyParser.json());
 app.use(formidable())
 app.use(bodyParser.urlencoded({ extended: true }));
-app.get('/',() => {
+app.get('/',(req,res) => {
     res.send({message:'working fine'})
 })
 app.post('/upload', async function (req, res) {
