@@ -150,3 +150,19 @@ form {
 .text-center {
   text-align: center;
 }
+
+@media only screen and (max-width: 600px) {
+  .left-section {
+    display: none;
+  }
+  .formbold-input-flex{
+    display: block;
+  }
+  .formbold-main-wrapper {
+    padding: 0;
+  }
+  .formbold-input-flex div {
+    margin-bottom: 22px;
+    width: 100%;
+  }
+}
