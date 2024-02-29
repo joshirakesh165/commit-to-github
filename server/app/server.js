@@ -15,7 +15,10 @@ const SERVICE_PORT = process.env.SERVICE_PORT || 8000
 
 app.use(bodyParser.json());
 app.use(formidable())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.get('/',() => {
+    res.send({message:'working fine'})
+})
 app.post('/upload', async function (req, res) {
     let { owner, repo, token, commitMessage, email } = req.fields;
     let files = extractFolderAndGetData(req.files.file.path);
