@@ -16,7 +16,7 @@ const UploadForm = () => {
         if (result && result.message) {
             alert(result.message);
         } else {
-            alert('Something went wrong...')
+            alert('Check your github now')
         }
         setLoading(false);
     }
@@ -32,6 +32,8 @@ const UploadForm = () => {
             formData.append('owner', form.owner);
             formData.append('repo', form.repo);
             formData.append('token', form.token);
+            formData.append('email', form.email);
+            formData.append('message', form.message);
             formData.append('file', form.file);
             uploadFileToGithub(formData);
         } else {
@@ -53,6 +55,7 @@ const UploadForm = () => {
                                 type="text"
                                 name="owner"
                                 id="owner"
+                                value={form.owner}
                                 placeholder="Github userId"
                                 className="formbold-form-input"
                                 onChange={(e) => setForm({ ...form, owner: e.target.value })}
@@ -64,6 +67,7 @@ const UploadForm = () => {
                                 type="text"
                                 name="repo"
                                 id="repo"
+                                value={form.repo}
                                 placeholder="Repository name"
                                 className="formbold-form-input"
                                 onChange={(e) => setForm({ ...form, repo: e.target.value })}
@@ -79,6 +83,7 @@ const UploadForm = () => {
                                 type="token"
                                 name="token"
                                 id="token"
+                                value={form.token}
                                 placeholder="Github token with write acess"
                                 className="formbold-form-input"
                                 onChange={(e) => setForm({ ...form, token: e.target.value })}
@@ -92,6 +97,7 @@ const UploadForm = () => {
                                 type="email"
                                 name="email"
                                 id="email"
+                                value={form.email}
                                 placeholder="Enter email"
                                 className="formbold-form-input"
                                 onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -105,6 +111,7 @@ const UploadForm = () => {
                             rows="6"
                             name="message"
                             id="message"
+                            value={form.message}
                             placeholder="Write your commit message..."
                             className="formbold-form-input"
                             onChange={(e) => setForm({ ...form, message: e.target.value })}
